@@ -1,0 +1,33 @@
+GARANTA QUE O PYTHON ESTEJA INSTALADO:
+
+python --version
+
+se não estiver, baixe no site: https://www.python.org/downloads/
+
+SEGUINDO:
+
+python -m venv venv
+
+INSTALE O FLET CASO NÃO ESTEJA INSTALADO:
+
+pip install flet
+
+INSTALE O PLOTLY PARA OS GRÁFICOS
+
+pip install plotly
+
+INSTALE O KALEIDO QUE AJUDA NOS GRÁFICOS
+
+pip install -U kaleido
+
+PRA RODAR:
+
+SITE:
+flet run navrail.py -w
+ou
+APLICATIVO LOCAL:
+python navrail.py
+
+CASO FALTE ALGO:
+
+winget install JanDeDobbeleer.OhMyPosh -s winget
