@@ -23,10 +23,10 @@ pip install -U kaleido
 PRA RODAR:
 
 SITE:
-flet run navrail.py -w
+flet run main.py -w
 ou
 APLICATIVO LOCAL:
-python navrail.py
+python main.py
 
 CASO FALTE ALGO:
 
