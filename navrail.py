@@ -85,15 +85,26 @@ def main(page: Page):
         # Adiciona cabeçalho da tabela
         tabela.columns = criar_colunas_tabela()  # Usa a função para criar colunas
 
-        # Adiciona linhas à tabela
+        def criar_botao_editar(cadastro):
+            return IconButton(
+                icon=icons.EDIT,
+                on_click=lambda e: abrir_edicao(cadastro)
+            )
+
+        def criar_botao_excluir(cadastro):
+            return IconButton(
+                icon=icons.DELETE,
+                on_click=lambda e: excluir_cadastro(cadastro)
+            )
+
         for cadastro in cadastros:
             tabela.rows.append(
                 DataRow(cells=[
                     DataCell(Text(cadastro["nome"])),
                     DataCell(Text(cadastro["salario"])),
                     DataCell(Text(cadastro["datainsercao"])),
-                    DataCell(IconButton(icon=icons.EDIT, on_click=lambda e, c=cadastro: abrir_edicao(cadastro))),
-                    DataCell(IconButton(icon=icons.DELETE, on_click=lambda e, c=cadastro: excluir_cadastro(cadastro))),
+                    DataCell(criar_botao_editar(cadastro)),
+                    DataCell(criar_botao_excluir(cadastro)),
                 ])
             )
 
@@ -127,6 +138,7 @@ def main(page: Page):
     dialog = None  # Inicialização da variável global
 
     def abrir_edicao(cadastro):
+        print(cadastro)
         salario_field = TextField(label="Novo Salário", value=cadastro["salario"], width=250)
         mensagem_erro = Text(value="", color="red")  # Campo para mensagens de erro
 
